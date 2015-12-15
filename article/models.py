@@ -1,3 +1,4 @@
+
 from django.db import models
 
 # Create your models here.
@@ -12,5 +13,5 @@ class Article(models.Model):
 class Comments(models.Model):
     class Meta:
         db_table = 'comments'
-    comments_text = models.TextField()
+    comments_text = models.TextField(verbose_name='текст коментаря')
     comments_article = models.ForeignKey(Article)

@@ -11,6 +11,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectResources">
+    <resource url="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" location="/" />
     <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.4.3 virtualenv at /env/djangoenv" project-jdk-type="Python SDK" />

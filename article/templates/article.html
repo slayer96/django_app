@@ -5,7 +5,14 @@
 <h2>{{ article.article_title }}</h2>
 <p> {{ article.article_text }}</p>
 <hr>
-{% for comment in comments %}
-    <p>{{ comment.comments_text }}</p>
-{% endfor %}
+<div class="large-offset-1 large-8 coloumns">
+    {% for comment in comments %}
+        <p>{{ comment.comments_text }}</p>
+    {% endfor %}
+    <form action="/articles/addcomment/{{ article.id }}/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" class="button" value="Добавити коментар">
+    </form>
+</div>
 {% endblock %}

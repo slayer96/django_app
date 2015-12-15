@@ -1,10 +1,12 @@
 {% extends 'main.html' %}
+{% load staticfiles %}
 {% block article %}
+<div class="large-8 columns">
     {% for article in articles %}
         <h6> Дата публікації: {{ article.article_date}}</h6>
         <h4><a href="/articles/get/{{ article.id }}/"> {{ article.article_title}}</h4></a>
         <p> {{ article.article_text }}</p>
-        <p> Вподобайки: {{ article.article_likes }} </p>
+        <p><a href="/articles/addlike/{{ article.id }}/"><img src="{% static "likeimage.png" %}" width="25px" height="25px"/></a>{{ article.article_likes }}</p>
         <hr>
     {% endfor %}
 {% endblock %}
