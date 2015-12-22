@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'article',
+    'loginsys',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -59,7 +60,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             '/home/ghost/projects/firstapp/templates/',
-            '/home/ghost/projects/firstapp/article/templates/'
+            '/home/ghost/projects/firstapp/article/templates/',
+            '/home/ghost/projects/loginsys/templates/',
         ],
         'APP_DIRS': True,
         'OPTIONS': {

@@ -17,9 +17,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 import article.urls
+import loginsys.urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', include(article.urls)),
-]
 
+    url(r'^auth/', include(loginsys.urls)),
+    url(r'^', include(article.urls)),
+]

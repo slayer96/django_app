@@ -7,6 +7,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.core.context_processors import csrf
 from article.models import Article, Comments
 from article.forms import CommentForm
+from django.contrib import auth
+from django.core.paginator import Paginator
 
 # Create your views here.
 def basic_one(request):
@@ -27,12 +29,12 @@ def template_three_simple(request):
     view = "template_three"
     return render_to_response('myview.html', {'name': view})
 
-def articles(request):
-    return render_to_response('articles.html', {'articles': Article.objects.all()})
-'''
-def article(request, article_id=1):
-    return render_to_response('article.html', {'article': Article.objects.get(id=article_id), 'comments': Comments.objects.filter(comments_article_id=article_id)})
-'''
+def articles(request, page_number=1):
+    all_artiles = Article.objects.all()
+    current_page = Paginator(all_artiles, 2)
+
+    return render_to_response('articles.html', {'articles': current_page.page(page_number), 'username': auth.get_user(request).username})
+
 def article(request, article_id=1):
     comment_form = CommentForm
     args = {}
@@ -40,6 +42,7 @@ def article(request, article_id=1):
     args['article'] = Article.objects.get(id=article_id)
     args['comments'] = Comments.objects.filter(comments_article_id=article_id)
     args['form'] = comment_form
+    args['username'] = auth.get_user(request).username
     return render_to_response('article.html', args)
 
 def addlike(request, article_id):
