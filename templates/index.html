@@ -1,9 +1,12 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Learn jQuery</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "static/style.css" %}">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="{% static "static/index.js" %}"></script>
 </head>
 <body>
 
